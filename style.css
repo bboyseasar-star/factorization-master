@@ -17,3 +17,15 @@
 @media(max-width:760px){.hint-flow-row{grid-template-columns:1fr}.hint-flow-note{border-left:0;border-top:2px solid #9bcdb9}}
 .support-content,.hint-flow-calc,.hint-formula{overflow-x:hidden!important}
 .handwriting-canvas{position:fixed;inset:0;z-index:10;width:100vw;height:100vh;pointer-events:none;touch-action:none}.handwriting-tools{position:fixed;right:22px;bottom:18px;z-index:30;display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.96);box-shadow:0 6px 20px rgba(21,33,29,.16)}.handwriting-label{font-size:.82rem;font-weight:700;color:var(--primary-hover)}.handwriting-tool,.handwriting-clear{min-height:36px;padding:6px 10px;border-radius:8px;background:#fff;border-color:var(--line);font-size:.82rem;color:var(--ink)}.handwriting-tool.selected{background:var(--primary);border-color:var(--primary);color:#fff}.handwriting-tool:disabled,.handwriting-clear:disabled{opacity:.45;cursor:not-allowed}.handwriting-clear{color:var(--danger);border-color:#efc1bc}.sr-status{position:fixed;z-index:31;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.play button,.play a,.play math-field{position:relative;z-index:20}@media(max-width:760px){.handwriting-tools{left:10px;right:10px;bottom:10px;justify-content:center;gap:5px}.handwriting-label{display:none}.handwriting-tool,.handwriting-clear{padding:6px 8px}}
+/* 採点の区別：あと一歩（途中）・書き方（決まり違反）・値の誤り、採点しない（空欄・書きかけ） */
+.unfinished{color:#b54708}.notation{color:#175cd3}.feedback.notice{background:#f2f4f7;border-color:#d0d5dd}.feedback.notice strong{color:#344054}
+/* 仮想キーボードが出ている間（<html class="vk-open">。main.js の followVirtualKeyboard が付ける）：高さ固定をゆるめてスクロールできるようにする */
+html.vk-open,html.vk-open body{height:auto;min-height:100%;overflow:auto}
+html.vk-open body{padding-bottom:var(--vk-height,0px)}
+html.vk-open #app{height:auto;min-height:100vh;overflow:visible}
+html.vk-open .screen.play,html.vk-open .play .work-layout,html.vk-open .play .problem-card,html.vk-open .play .hint-area,html.vk-open .play .feedback{height:auto;overflow:visible}
+/* 低い画面（1366×768 の Chromebook など）：判定文が2〜3行でも「次へ」が見えるよう、縦の余白を詰める */
+@media (max-height:820px){.play{padding-top:12px;padding-bottom:12px;gap:10px}.play .problem-card{padding:14px 20px}.play .prompt{margin:0 0 6px}.play .math{margin:8px 0}.play .assist{margin:4px 0}.play .feedback{padding:12px 16px}.play .feedback p{margin:4px 0}}
+/* 背景色（ページの外側まで）と、押せないボタンの見た目 */
+html,body{background:var(--bg)}
+button:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.3)}
